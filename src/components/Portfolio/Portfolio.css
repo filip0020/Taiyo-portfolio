@@ -1,0 +1,50 @@
+/* components/Portfolio/Portfolio.css */
+.portfolio {
+  padding: 6rem 2rem;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.portfolio-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.8rem;
+  color: var(--color-text);
+}
+
+/* GRID CORECT - așa cum era inițial */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Animație simplă de intrare */
+.project-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Când portfolio-ul este vizibil, animăm cardurile */
+.portfolio-in-view .project-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay progresiv pentru fiecare card */
+.portfolio-in-view .project-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.portfolio-in-view .project-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.portfolio-in-view .project-card:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.portfolio-in-view .project-card:nth-child(4) {
+  transition-delay: 0.4s;
+}

@@ -1,0 +1,72 @@
+/* components/Navbar/Navbar.css */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logo-icon {
+  transform: rotate(15deg) scale(1.1);
+  filter: drop-shadow(0 0 8px var(--color-accent-light-2));
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logo-text {
+  color: var(--color-accent-light-2);
+  text-shadow: 0 0 10px var(--color-accent-light-2);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background: rgba(1, 10, 18, 0.95);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(60, 170, 163, 0.2);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 90px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent-light-2);
+  background-color: rgba(52, 149, 142, 0.1);
+}

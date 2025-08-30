@@ -1,0 +1,69 @@
+.social-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 3rem auto 0;
+  padding: 0 2rem;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: rgba(1, 10, 18, 0.7);
+  border: 2px solid #34958e;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #f8f9fa;
+  transition: all 0.4s ease;
+  min-height: 180px;
+}
+
+.social-card:hover {
+  border-color: #3caaa3;
+  box-shadow: 0 0 10px #3caaa3, 0 0 20px #3caaa3, 0 0 40px #3caaa3;
+  transform: translateY(-8px) scale(1.05);
+}
+
+.social-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  fill: currentColor;
+  color: #34958e;
+  transition: all 0.4s ease;
+}
+
+.social-card:hover .social-logo {
+  color: #3caaa3;
+  transform: scale(1.2);
+}
+
+.social-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  color: #e9ecef;
+  transition: all 0.4s ease;
+}
+
+.social-card:hover .social-name {
+  color: #3caaa3;
+  text-shadow: 0 0 10px #3caaa3;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .social-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .social-links-grid {
+    grid-template-columns: 1fr;
+  }
+}

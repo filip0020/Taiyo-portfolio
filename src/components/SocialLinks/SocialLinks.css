@@ -1,0 +1,85 @@
+/* components/SocialLinks/SocialLinks.css */
+.social-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: rgba(1, 10, 18, 0.7);
+  border: 2px solid var(--color-accent-light); /* 👈 CULOAREA TA */
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all 0.4s ease;
+  min-height: 180px;
+}
+
+.social-card:hover {
+  border-color: var(--color-accent-light-2); /* 👈 CULOAREA TA la hover */
+  box-shadow: 0 0 10px var(--color-accent-light-2),
+    /* 👈 CULOAREA TA */ 0 0 20px var(--color-accent-light-2),
+    /* 👈 CULOAREA TA */ 0 0 40px var(--color-accent-light-2); /* 👈 CULOAREA TA */
+  transform: translateY(-8px) scale(1.05);
+}
+
+/* STILURI pentru SVG-uri - CU CULORILE TALE */
+.social-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  fill: currentColor;
+  color: var(--color-accent-light); /* 👈 CULOAREA TA initiala */
+  transition: all 0.4s ease;
+}
+
+.social-card:hover .social-logo {
+  color: var(--color-accent-light-2); /* 👈 CULOAREA TA la hover */
+  transform: scale(1.2);
+}
+
+.social-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-text-secondary);
+  transition: all 0.4s ease;
+}
+
+.social-card:hover .social-name {
+  color: var(--color-accent-light-2); /* 👈 CULOAREA TA la hover */
+  text-shadow: 0 0 10px var(--color-accent-light-2); /* 👈 CULOAREA TA */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .social-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .social-links-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .social-card {
+    min-height: 150px;
+    padding: 1.5rem 1rem;
+  }
+
+  .social-logo {
+    width: 50px;
+    height: 50px;
+  }
+}

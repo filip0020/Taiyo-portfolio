@@ -1,0 +1,56 @@
+/* components/Contact/Contact.css */
+.contact {
+  padding: 6rem 2rem;
+  min-height: 50vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.contact.contact-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.contact.contact-visible h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact p {
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
+}
+
+.contact.contact-visible p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Social Links grid - animație separată */
+.social-links-grid {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out 0.6s, transform 0.8s ease-out 0.6s;
+}
+
+.contact.contact-visible .social-links-grid {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,101 @@
+/* components/ProjectCard/ProjectCard.css */
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.6s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(60, 170, 163, 0.2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-accent-light-2);
+  box-shadow: 0 15px 35px rgba(60, 170, 163, 0.2);
+}
+
+.project-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+}
+
+.project-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 12, 20, 0.5);
+  color: var(--color-accent-light);
+  font-size: 3rem;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(1, 10, 18, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-link {
+  padding: 0.8rem 1.5rem;
+  background: rgba(60, 170, 163, 0.2);
+  color: var(--color-text);
+  text-decoration: none;
+  border: 1px solid var(--color-accent-light);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: var(--color-accent-light-2);
+  color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.project-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-info h3 {
+  margin-bottom: 0.8rem;
+  color: var(--color-text);
+  font-size: 1.3rem;
+}
+
+.project-info p {
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  flex-grow: 1;
+}

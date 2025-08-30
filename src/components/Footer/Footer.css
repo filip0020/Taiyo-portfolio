@@ -1,0 +1,11 @@
+/* components/Footer/Footer.css */
+.footer {
+  text-align: center;
+  padding: 3rem;
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-secondary);
+}
+
+.footer p {
+  margin: 0;
+}
