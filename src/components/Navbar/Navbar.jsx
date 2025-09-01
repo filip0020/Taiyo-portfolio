@@ -1,4 +1,5 @@
 // components/Navbar/Navbar.jsx
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Logo from '../Logo/Logo';
 import './Navbar.css';
 
@@ -13,6 +14,8 @@ function Navbar() {
           <li><a href="#portfolio">Portofoliu</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        {/* Componenta burger pentru mobile */}
+        <BurgerMenu />
       </nav>
     </header>
   );

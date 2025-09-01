@@ -70,3 +70,42 @@
   color: var(--color-accent-light-2);
   background-color: rgba(52, 149, 142, 0.1);
 }
+
+/* burger */
+
+.burger-menu {
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 20px;
+}
+
+/* ASCUNDE burger menu pe desktop */
+@media (min-width: 769px) {
+  .burger-menu {
+    display: none !important;
+  }
+}
+
+/* ASCUNDE meniul normal pe mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none !important;
+  }
+
+  /* AFIȘEAZĂ burger menu pe mobile */
+  .burger-menu {
+    display: flex !important;
+  }
+}
