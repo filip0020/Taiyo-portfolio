@@ -1,5 +1,5 @@
 import { socialLinks } from '../../data';
-import './socialLinks.css';
+import './SocialLinks.css';
 
 function SocialLinks() {
   return (

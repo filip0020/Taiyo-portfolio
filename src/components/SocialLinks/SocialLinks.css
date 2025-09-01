@@ -1,4 +1,3 @@
-/* components/SocialLinks/SocialLinks.css */
 .social-links-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -15,7 +14,7 @@
   justify-content: center;
   padding: 2rem 1rem;
   background: rgba(1, 10, 18, 0.7);
-  border: 2px solid var(--color-accent-light); /* 👈 CULOAREA TA */
+  border: 2px solid var(--color-accent-light);
   border-radius: 12px;
   text-decoration: none;
   color: var(--color-text);
@@ -24,25 +23,23 @@
 }
 
 .social-card:hover {
-  border-color: var(--color-accent-light-2); /* 👈 CULOAREA TA la hover */
+  border-color: var(--color-accent-light-2);
   box-shadow: 0 0 10px var(--color-accent-light-2),
-    /* 👈 CULOAREA TA */ 0 0 20px var(--color-accent-light-2),
-    /* 👈 CULOAREA TA */ 0 0 40px var(--color-accent-light-2); /* 👈 CULOAREA TA */
+    0 0 20px var(--color-accent-light-2), 0 0 40px var(--color-accent-light-2);
   transform: translateY(-8px) scale(1.05);
 }
 
-/* STILURI pentru SVG-uri - CU CULORILE TALE */
 .social-logo {
   width: 60px;
   height: 60px;
   margin-bottom: 1rem;
   fill: currentColor;
-  color: var(--color-accent-light); /* 👈 CULOAREA TA initiala */
+  color: var(--color-accent-light);
   transition: all 0.4s ease;
 }
 
 .social-card:hover .social-logo {
-  color: var(--color-accent-light-2); /* 👈 CULOAREA TA la hover */
+  color: var(--color-accent-light-2);
   transform: scale(1.2);
 }
 
@@ -55,8 +52,8 @@
 }
 
 .social-card:hover .social-name {
-  color: var(--color-accent-light-2); /* 👈 CULOAREA TA la hover */
-  text-shadow: 0 0 10px var(--color-accent-light-2); /* 👈 CULOAREA TA */
+  color: var(--color-accent-light-2);
+  text-shadow: 0 0 10px var(--color-accent-light-2);
 }
 
 /* Responsive */
