@@ -1,4 +1,3 @@
-// components/Portfolio/Portfolio.jsx
 import { useInView } from '../../hooks/useInView';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import './Portfolio.css';
@@ -21,7 +20,7 @@ function Portfolio({ projects }) {
             imageUrl={project.imageUrl}
             liveUrl={project.linkLive}
             githubUrl={project.linkGithub}
-            index={index} // Trimitem indexul pentru delay
+            index={index}
             isVisible={isInView}
           />
         ))}

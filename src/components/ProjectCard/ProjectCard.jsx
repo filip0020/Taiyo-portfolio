@@ -1,4 +1,3 @@
-// components/ProjectCard/ProjectCard.jsx
 import { useState } from 'react';
 import './ProjectCard.css';
 

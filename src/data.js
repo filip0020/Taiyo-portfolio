@@ -30,21 +30,21 @@ export const socialLinks = [
   {
     id: 1,
     name: "Telegram",
-    url: "https://t.me/username_tau",
+    url: "https://t.me/Taiyo_0019",
     icon: "telegram",
     color: "var(--color-accent-light-2)"
   },
   {
     id: 2,
     name: "Instagram",
-    url: "https://instagram.com/username_tau",
+    url: "https://www.instagram.com/taiyo_dev20/",
     icon: "instagram",
     color: "var(--color-accent-light-2)"
   },
   {
     id: 3,
     name: "GitHub",
-    url: "https://github.com/username_tau",
+    url: "https://github.com/filip0020",
     icon: "github",
     color: "var(--color-accent-light-2)"
   },

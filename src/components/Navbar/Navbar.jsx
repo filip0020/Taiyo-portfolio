@@ -1,4 +1,3 @@
-// components/Navbar/Navbar.jsx
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Logo from '../Logo/Logo';
 import './Navbar.css';

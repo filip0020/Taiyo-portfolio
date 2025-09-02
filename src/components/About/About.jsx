@@ -1,4 +1,3 @@
-// components/About/About.jsx
 import { useInView } from '../../hooks/useInView';
 import './About.css';
 

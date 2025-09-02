@@ -1,4 +1,3 @@
-/* components/Contact/Contact.css */
 .contact {
   padding: 6rem 2rem;
   min-height: 50vh;
@@ -43,7 +42,6 @@
   transform: translateY(0);
 }
 
-/* Social Links grid - animație separată */
 .social-links-grid {
   opacity: 0;
   transform: translateY(30px);

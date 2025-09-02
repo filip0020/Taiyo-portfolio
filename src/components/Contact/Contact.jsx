@@ -1,4 +1,3 @@
-// components/Contact/Contact.jsx
 import { useInView } from '../../hooks/useInView';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import './Contact.css';
