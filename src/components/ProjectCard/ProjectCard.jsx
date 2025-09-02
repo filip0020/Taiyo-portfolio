@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './ProjectCard.css';
 
-function ProjectCard({ title, description, imageUrl, liveUrl, githubUrl, index, isVisible }) {
+function ProjectCard({ title, description, imageUrl, liveUrl, githubUrl, technologies, index, isVisible }) {
   const [imageError, setImageError] = useState(false);
 
   return (
@@ -36,6 +36,16 @@ function ProjectCard({ title, description, imageUrl, liveUrl, githubUrl, index, 
       <div className="project-info">
         <h3>{title}</h3>
         <p>{description}</p>
+
+        {technologies && technologies.length > 0 && (
+          <div className="project-technologies">
+            {technologies.map((tech, techIndex) => (
+              <span key={techIndex} className="tech-tag">
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

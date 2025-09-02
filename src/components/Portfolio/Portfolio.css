@@ -1,41 +1,95 @@
-/* components/Portfolio/Portfolio.css */
 .portfolio {
-  padding: 6rem 2rem;
-  min-height: 100vh;
+  padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
 }
 
-.portfolio-title {
+/* Header îmbunătățit */
+.portfolio-header {
   text-align: center;
   margin-bottom: 3rem;
-  font-size: 2.8rem;
-  color: var(--color-text);
 }
 
-/* GRID CORECT - așa cum era inițial */
+.portfolio-title {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light-1),
+    var(--color-accent-light-2)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.portfolio-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Statistics */
+.portfolio-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(52, 149, 142, 0.08);
+  border-radius: 15px;
+  min-width: 100px;
+  transition: transform 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+  background: rgba(52, 149, 142, 0.12);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-accent-light-2);
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* Grid îmbunătățit */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
 }
 
-/* Animație simplă de intrare */
 .project-card {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(50px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-/* Când portfolio-ul este vizibil, animăm cardurile */
 .portfolio-in-view .project-card {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-/* Delay progresiv pentru fiecare card */
 .portfolio-in-view .project-card:nth-child(1) {
   transition-delay: 0.1s;
 }
@@ -47,4 +101,87 @@
 }
 .portfolio-in-view .project-card:nth-child(4) {
   transition-delay: 0.4s;
+}
+.portfolio-in-view .project-card:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.portfolio-in-view .project-card:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+/* CTA section */
+.portfolio-cta {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(52, 149, 142, 0.1),
+    rgba(52, 149, 142, 0.05)
+  );
+  border-radius: 20px;
+  border: 1px solid rgba(52, 149, 142, 0.1);
+}
+
+.portfolio-cta p {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.cta-button {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light-1),
+    var(--color-accent-light-2)
+  );
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(52, 149, 142, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(52, 149, 142, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 2rem 1rem;
+  }
+
+  .portfolio-title {
+    font-size: 2.2rem;
+  }
+
+  .portfolio-stats {
+    gap: 1.5rem;
+  }
+
+  .stat {
+    min-width: 80px;
+    padding: 0.8rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .portfolio-cta {
+    margin-top: 3rem;
+    padding: 1.5rem;
+  }
 }

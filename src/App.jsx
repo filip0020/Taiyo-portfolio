@@ -1,7 +1,7 @@
 
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
-import About from './components/About/About';
+import About from './components/About/About.jsx';
 import Portfolio from './components/Portfolio/Portfolio';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
@@ -13,7 +13,7 @@ function App() {
     <div className="app">
       <Navbar />
       <Hero name={personalData.name} country={personalData.country} />
-      <About description={personalData.description} />
+      <About />
       <Portfolio projects={projects} />
       <Contact />
       <Footer />

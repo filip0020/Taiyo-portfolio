@@ -1,11 +1,10 @@
 .about {
-  padding: 6rem 2rem;
-  max-width: 1200px;
+  padding: 3rem 2rem;
+  max-width: 1000px;
   margin: 0 auto;
-  min-height: 100vh;
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
 }
 
 .about.about-visible {
@@ -15,41 +14,185 @@
 
 .about-title {
   text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
   color: var(--color-text);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light-1),
+    var(--color-accent-light-2)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.about.about-visible .about-title {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.about-description {
+.about-subtitle {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Layout compact */
+.about-compact {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Header compact */
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.about-avatar {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.about-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-accent-light-2);
+  box-shadow: 0 5px 15px rgba(52, 149, 142, 0.3);
+}
+
+.avatar-badge {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background: var(--color-accent-light-2);
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
+.about-bio h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--color-text);
+}
+
+.about-bio p {
+  margin: 0.3rem 0;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.bio-stats {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.bio-stats span {
+  background: rgba(52, 149, 142, 0.1);
+  color: var(--color-accent-light-2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Tabs compacte */
+.compact-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.compact-tabs button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  background: rgba(52, 149, 142, 0.08);
+  color: var(--color-text);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.compact-tabs button:hover {
+  background: rgba(52, 149, 142, 0.15);
+  transform: translateY(-2px);
+}
+
+.compact-tabs .compact-active {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light-1),
+    var(--color-accent-light-2)
+  );
+  color: white;
+  box-shadow: 0 5px 15px rgba(52, 149, 142, 0.3);
+}
+
+/* Conținut tabs */
+.compact-content {
+  margin-bottom: 1.5rem;
+}
+
+.compact-content h4 {
+  color: var(--color-text);
+  margin-bottom: 1rem;
   font-size: 1.2rem;
-  line-height: 1.8;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
 }
 
-.about.about-visible .about-description {
-  opacity: 1;
-  transform: translateY(0);
+.compact-content ul {
+  list-style: none;
+  padding: 0;
 }
 
+.compact-content li {
+  padding: 0.5rem 0;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.compact-content li:last-child {
+  border-bottom: none;
+}
+
+/* Citat */
+.about-quote {
+  text-align: center;
+  font-style: italic;
+  color: var(--color-accent-light-2);
+  border-left: 3px solid var(--color-accent-light-2);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0 0 0;
+  background: rgba(52, 149, 142, 0.05);
+  border-radius: 0 10px 10px 0;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .about {
-    padding: 4rem 1rem;
+    padding: 2rem 1rem;
   }
 
-  .about p {
-    font-size: 1.1rem;
+  .about-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .compact-tabs {
+    flex-wrap: wrap;
+  }
+
+  .bio-stats {
+    justify-content: center;
   }
 }

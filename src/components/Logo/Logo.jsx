@@ -2,7 +2,7 @@ import './Logo.css';
 
 function Logo() {
   return (
-    <div className="logo-container">
+    <a className="logo-container" href="#">
       <svg className="logo-svg" width="50" height="50" viewBox="0 0 50 50">
         <defs>
           <linearGradient id="neon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -36,7 +36,7 @@ function Logo() {
         <span className="logo-text-main">FILIP</span>
         <span className="logo-text-sub">DEV</span>
       </div>
-    </div>
+    </a>
   );
 }
 

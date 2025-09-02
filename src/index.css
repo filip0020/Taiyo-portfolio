@@ -17,6 +17,33 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(1, 10, 18, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light-1),
+    var(--color-accent-light-2)
+  );
+  border-radius: 10px;
+  border: 2px solid rgba(1, 10, 18, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light-2),
+    var(--color-accent-light-1)
+  );
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -69,4 +96,29 @@ body::before {
     );
   pointer-events: none;
   z-index: -1;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light-1),
+    var(--color-accent-light-2)
+  );
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(52, 149, 142, 0.3);
 }

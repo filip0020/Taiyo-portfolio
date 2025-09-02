@@ -5,8 +5,6 @@ export const personalData = {
   description: "Sunt un developer pasionat de tehnologie și în continuă căutare a noilor provocări. Îmi place să creez interfețe frumoase și funcționale.", // <- Scrie ceva despre tine
 };
 
-
-
 export const projects = [
   {
     id: 1,
