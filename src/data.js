@@ -51,7 +51,7 @@ export const socialLinks = [
   {
     id: 4,
     name: "LinkedIn",
-    url: "https://linkedin.com/in/username_tau",
+    url: "https://www.linkedin.com/in/filip-todorov-4a5b49381/?trk=opento_sprofile_details",
     icon: "linkedin",
     color: "var(--color-accent-light-2)"
   }
