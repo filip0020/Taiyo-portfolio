@@ -15,14 +15,6 @@
   font-size: 2.8rem;
   margin-bottom: 0.5rem;
   color: var(--color-text);
-  background: linear-gradient(
-    135deg,
-    var(--color-accent-light-1),
-    var(--color-accent-light-2)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .portfolio-subtitle {
