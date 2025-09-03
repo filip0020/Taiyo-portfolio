@@ -50,7 +50,7 @@ const About = () => {
         <div className="compact-content">
           {activeTab === 'artist' && (
             <div className="tab-artist">
-              <h4>Creativitate în sânge</h4>
+              <h4>Creativitate </h4>
               <ul>
                 <li>🎨 Desenez de peste 10 ani - de la schițe la tablouri</li>
                 <li>🎭 Iubesc să transform emoțiile în artă vizuală</li>
