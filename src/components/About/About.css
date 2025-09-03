@@ -23,7 +23,6 @@
     var(--color-accent-light-2)
   );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
@@ -34,7 +33,6 @@
   font-size: 1.1rem;
 }
 
-/* Layout compact */
 .about-compact {
   background: rgba(255, 255, 255, 0.02);
   border-radius: 20px;
@@ -43,7 +41,6 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Header compact */
 .about-header {
   display: flex;
   align-items: center;
@@ -67,13 +64,13 @@
 
 .avatar-badge {
   position: absolute;
-  bottom: -5px;
-  right: -5px;
+  bottom: 5px;
+  right: 5px;
   background: var(--color-accent-light-2);
   color: white;
-  padding: 5px;
+  padding: 2px;
   border-radius: 50%;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
 
 .about-bio h3 {
@@ -104,7 +101,6 @@
   font-weight: 500;
 }
 
-/* Tabs compacte */
 .compact-tabs {
   display: flex;
   gap: 0.5rem;
@@ -139,7 +135,6 @@
   box-shadow: 0 5px 15px rgba(52, 149, 142, 0.3);
 }
 
-/* Conținut tabs */
 .compact-content {
   margin-bottom: 1.5rem;
 }
@@ -165,7 +160,6 @@
   border-bottom: none;
 }
 
-/* Citat */
 .about-quote {
   text-align: center;
   font-style: italic;
@@ -177,7 +171,6 @@
   border-radius: 0 10px 10px 0;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .about {
     padding: 2rem 1rem;

@@ -149,7 +149,10 @@
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(52, 149, 142, 0.4);
+  background-color: var(--color-accent-light-2);
+  color: #0c102e;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 115px rgba(52, 212, 201, 0.4), 0 10px 80px rgb(0, 255, 238);
 }
 
 /* Responsive */

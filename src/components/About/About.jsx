@@ -11,20 +11,18 @@ const About = () => {
 
   return (
     <section id="about" ref={ref} className={`about ${isInView ? 'about-visible' : ''}`}>
-      <h2 className="about-title">Despre Creator</h2>
-      <p className="about-subtitle">Artist • Muzician • Developer</p>
+      <h2 className="about-title">Despre mine</h2>
+      <p className="about-subtitle">Artist • Developer</p>
 
       <div className="about-compact">
-        {/* Imagine mică și informații esențiale */}
         <div className="about-header">
           <div className="about-avatar">
             <img src="../Filip-Todorov.jpg" alt="Filip Todorov" />
-            <div className="avatar-badge">🎨</div>
           </div>
 
           <div className="about-bio">
             <h3>Filip Todorov</h3>
-            <p>💻 Frontend Developer • 🎸 Chitarist • 🎨 Artist</p>
+            <p>💻 Frontend Developer • 🎨 Artist</p>
             <div className="bio-stats">
               <span>2+ ani coding</span>
               <span>10+ ani desen</span>
@@ -55,7 +53,6 @@ const About = () => {
               <h4>Creativitate în sânge</h4>
               <ul>
                 <li>🎨 Desenez de peste 10 ani - de la schițe la tablouri</li>
-                <li>🎸 Compun și cânt la chitară ca formă de expresie</li>
                 <li>🎭 Iubesc să transform emoțiile în artă vizuală</li>
                 <li>🌈 Am ochi pentru detalii și armonie cromatică</li>
               </ul>
@@ -66,7 +63,7 @@ const About = () => {
             <div className="tab-developer">
               <h4>De la artă la algoritmi</h4>
               <ul>
-                <li>💻 2 ani de frontend development cu React</li>
+                <li>💻 2 ani de frontend development cu React, HTML5, CSS3, JS</li>
                 <li>🎯 Specializat pe interfețe intuitive și frumoase</li>
                 <li>🚀 Autodidact dedicat - învăț zilnic ceva nou</li>
                 <li>❤️ Pasiune pentru cod elegant și funcțional</li>
