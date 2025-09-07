@@ -26,10 +26,10 @@ function ProjectCard({ title, description, imageUrl, liveUrl, githubUrl, technol
         )}
         <div className="project-overlay">
           <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-            👁️ Live
+            Vezi Live
           </a>
           <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-            💻 Code
+            Github Code
           </a>
         </div>
       </div>

@@ -8,11 +8,11 @@ export const personalData = {
 export const projects = [
   {
     id: 1,
-    title: "Site Portofoliu",
-    description: "Siteul pe care îl construim acum, folosind React și Vite.",
-    imageUrl: "/8684289.jpg",
-    linkLive: "#",
-    linkGithub: "#"
+    title: "ArtDen-Media",
+    description: "Site portofolio creat pentru un video-editor",
+    imageUrl: "/ArtDen.png",
+    linkLive: "https://artden-media.netlify.app/",
+    linkGithub: "https://github.com/filip0020"
   },
   {
     id: 2,
