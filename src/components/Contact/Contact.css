@@ -1,6 +1,6 @@
 .contact {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, #5a2d9c 0%, #0a031a 100%);
+  background: linear-gradient(269deg, #020617 0%, #0f172a 50%, #020617 100%);
   color: white;
 }
 
@@ -27,7 +27,7 @@
 
 .socials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
@@ -61,6 +61,16 @@
   padding: 2rem;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-subtitle {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.socials-section {
+  margin-top: 2.2rem;
 }
 
 .input-group {
@@ -110,7 +120,7 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  background: var(--clr, #ff6b9d);
+  background: var(--clr, #34958e);
   border: none;
   border-radius: 10px;
   padding: 1rem 2rem;
@@ -122,7 +132,7 @@ textarea {
 }
 
 .submit-btn:hover {
-  background: #ff4b84;
+  background: #3caaa3;
 }
 
 .success {

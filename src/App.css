@@ -7,7 +7,7 @@
   --color-accent-light-2: #3caaa3;
   --color-text: #f8f9fa;
   --color-text-secondary: #e9ecef;
-  --color-background: #020b13;
+  --color-background: #050e17;
   --color-card: #020d15;
 }
 
@@ -21,6 +21,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: var(--color-text);
+  background-color: #050e17;
   background-color: var(--color-background);
 }
 

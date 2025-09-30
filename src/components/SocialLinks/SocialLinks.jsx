@@ -1,5 +1,5 @@
-import { socialLinks } from '../../data';
-import './SocialLinks.css';
+import { socialLinks } from "../../data";
+import "./SocialLinks.css";
 
 function SocialLinks() {
   return (
@@ -11,6 +11,7 @@ function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
           className="social-card"
+          style={{ "--clr": link.color }}
         >
           <svg className="social-logo">
             <use xlinkHref={`/sprite.svg#${link.icon}-icon`} />

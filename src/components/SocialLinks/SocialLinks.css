@@ -1,32 +1,49 @@
 .social-links-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
 .social-card {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
-  background: rgba(1, 10, 18, 0.7);
-  border: 2px solid var(--color-accent-light);
-  border-radius: 12px;
+  background: rgba(1, 10, 18, 0.65);
+  border: 2px solid var(--clr, var(--color-accent-light));
+  border-radius: 16px;
   text-decoration: none;
   color: var(--color-text);
   transition: all 0.4s ease;
   min-height: 180px;
+  isolation: isolate;
+}
+
+/* efect de glow dinamic */
+.social-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, var(--clr), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.social-card:hover::before {
+  opacity: 0.25;
 }
 
 .social-card:hover {
-  border-color: var(--color-accent-light-2);
-  box-shadow: 0 0 10px var(--color-accent-light-2),
-    0 0 20px var(--color-accent-light-2), 0 0 40px var(--color-accent-light-2);
-  transform: translateY(-8px) scale(1.05);
+  border-color: var(--clr);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 20px var(--clr);
 }
 
 .social-logo {
@@ -34,13 +51,12 @@
   height: 60px;
   margin-bottom: 1rem;
   fill: currentColor;
-  color: var(--color-accent-light);
+  color: var(--clr);
   transition: all 0.4s ease;
 }
 
 .social-card:hover .social-logo {
-  color: var(--color-accent-light-2);
-  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px var(--clr));
 }
 
 .social-name {
@@ -48,33 +64,29 @@
   font-weight: 600;
   text-align: center;
   color: var(--color-text-secondary);
-  transition: all 0.4s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .social-card:hover .social-name {
-  color: var(--color-accent-light-2);
-  text-shadow: 0 0 10px var(--color-accent-light-2);
+  color: var(--clr);
+  text-shadow: 0 0 10px var(--clr);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .social-links-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+  }
+  .social-card {
+    min-height: 160px;
+    padding: 1.5rem 1rem;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
   .social-links-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-
-  .social-card {
-    min-height: 150px;
-    padding: 1.5rem 1rem;
-  }
-
   .social-logo {
     width: 50px;
     height: 50px;

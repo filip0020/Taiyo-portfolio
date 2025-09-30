@@ -1,11 +1,10 @@
 .portfolio {
-  padding: 4rem 2rem;
-  max-width: 1200px;
+  padding: 4rem 4rem;
   margin: 0 auto;
   position: relative;
+  background: linear-gradient(269deg, #020617 0%, #0f172a 50%, #020617 100%);
 }
 
-/* Header îmbunătățit */
 .portfolio-header {
   text-align: center;
   margin-bottom: 3rem;

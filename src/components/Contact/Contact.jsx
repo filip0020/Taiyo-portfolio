@@ -2,15 +2,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import {
-  FaInstagram,
-  FaTiktok,
-  FaFacebook,
-  FaTelegram,
   FaPaperPlane,
   FaUser,
   FaEnvelope,
   FaComment,
 } from "react-icons/fa";
+import SocialLinks from "../SocialLinks/SocialLinks";
 import "./Contact.css";
 
 const Contact = ({ language = "en" }) => {
@@ -47,37 +44,6 @@ const Contact = ({ language = "en" }) => {
     );
   };
 
-  const socialPlatforms = [
-    {
-      id: "instagram",
-      name: "Instagram",
-      icon: <FaInstagram />,
-      color: "#E1306C",
-      url: "https://instagram.com/artdenmedia",
-    },
-    {
-      id: "tiktok",
-      name: "TikTok",
-      icon: <FaTiktok />,
-      color: "#000000",
-      url: "https://tiktok.com/@artdenmedia",
-    },
-    {
-      id: "facebook",
-      name: "Facebook",
-      icon: <FaFacebook />,
-      color: "#1877F2",
-      url: "https://facebook.com/artdenmedia",
-    },
-    {
-      id: "telegram",
-      name: "Telegram",
-      icon: <FaTelegram />,
-      color: "#0088CC",
-      url: "https://t.me/artdenmedia",
-    },
-  ];
-
   return (
     <section id="contact" className="contact">
       <div className="container">
@@ -89,7 +55,7 @@ const Contact = ({ language = "en" }) => {
         >
           {language === "ro"
             ? "Hai să colaborăm la următorul proiect!"
-            : "Let’s collaborate on your next project!"}
+            : "Let's Collaborate on Your Next Project!"}
         </motion.h2>
 
         <motion.p
@@ -100,38 +66,22 @@ const Contact = ({ language = "en" }) => {
           viewport={{ once: true }}
         >
           {language === "ro"
-            ? "Contactează-mă pe rețelele sociale sau prin formular:"
-            : "Reach me on social media or via the form below:"}
+            ? "Contactează-mă pe rețelele sociale sau prin formular"
+            : "Reach me on social media or via the form below"}
         </motion.p>
 
         <div className="contact-content">
           <motion.div
-            className="socials"
+            className="socials-section"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="socials-grid">
-              {socialPlatforms.map((p, i) => (
-                <motion.a
-                  key={p.id}
-                  href={p.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-card"
-                  style={{ "--clr": p.color }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                >
-                  <span className="icon">{p.icon}</span>
-                  <span>{p.name}</span>
-                </motion.a>
-              ))}
-            </div>
+            <h3 className="section-subtitle">
+              {language === "ro" ? "Conectează-te cu mine" : "Connect With Me"}
+            </h3>
+            <SocialLinks />
           </motion.div>
 
           <motion.div
@@ -141,6 +91,9 @@ const Contact = ({ language = "en" }) => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
+            <h3 className="section-subtitle">
+              {language === "ro" ? "Trimite-mi un mesaj" : "Send Me a Message"}
+            </h3>
             <form onSubmit={handleSubmit}>
               <div className="input-group">
                 <FaUser className="input-icon" />
@@ -181,18 +134,18 @@ const Contact = ({ language = "en" }) => {
               <motion.button
                 type="submit"
                 className="submit-btn"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <FaPaperPlane />{" "}
-                {language === "ro" ? "Trimite mesajul" : "Send message"}
+                <FaPaperPlane />
+                {language === "ro" ? "Trimite mesajul" : "Send Message"}
               </motion.button>
 
               {isSubmitted && (
                 <motion.div
                   className="success"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
                 >
                   {language === "ro"
                     ? "✓ Mesaj trimis cu succes!"

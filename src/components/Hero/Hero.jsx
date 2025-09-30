@@ -1,175 +1,153 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import "./Hero.css";
 
-function Hero({ name, country }) {
-  const heroRef = useRef(null);
-  const canvasRef = useRef(null);
+function Hero() {
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+  const [wordIndex, setWordIndex] = useState(0);
 
-  const scrollToPortfolio = () => {
-    const portfolioSection = document.getElementById("portfolio");
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+  const words = [
+    "Front-End Developer",
+    "UI/UX Enthusiast",
+    "Problem Solver",
+    "Continuous Learner",
+    "React & Vue Expert"
+  ];
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const current = words[wordIndex];
+      if (!deleting) {
+        setText(current.substring(0, index + 1));
+        setIndex((prev) => prev + 1);
+
+        if (index + 1 === current.length) {
+          setTimeout(() => setDeleting(true), 1500);
+        }
+      } else {
+        setText(current.substring(0, index - 1));
+        setIndex((prev) => prev - 1);
+
+        if (index === 0) {
+          setDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }
+      }
+    };
+
+    const speed = deleting ? 50 : 80;
+    const timer = setTimeout(handleTyping, speed);
+    return () => clearTimeout(timer);
+  }, [index, deleting, wordIndex]);
+
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  useEffect(() => {
-    // Typewriter effect
-    const titleElement = document.querySelector(".hero-title");
-    const text = `Hello, I'm ${name}`;
-    let index = 0;
-    titleElement.innerHTML = "";
-    const typeWriter = () => {
-      if (index < text.length) {
-        titleElement.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, 100);
-      }
-    };
-    setTimeout(typeWriter, 500);
-
-    // Particles effect
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles = [];
-    const particleCount = 50;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-        this.color = `rgba(52, 212, 201, ${Math.random() * 0.5 + 0.2})`;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x > canvas.width) this.x = 0;
-        else if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        else if (this.y < 0) this.y = canvas.height;
-      }
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    const createParticles = () => {
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-    };
-
-    const animateParticles = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-      }
-      requestAnimationFrame(animateParticles);
-    };
-
-    createParticles();
-    animateParticles();
-
-    // Fade-in
-    const contentElements = document.querySelectorAll(".hero-content > *");
-    contentElements.forEach((el, index) => {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(20px)";
-      setTimeout(() => {
-        el.style.transition = "opacity 0.8s ease, transform 0.8s ease";
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-      }, 1000 + index * 300);
-    });
-
-    // Resize
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [name]);
-
   return (
-    <section id="home" className="hero" ref={heroRef}>
-      <canvas ref={canvasRef} className="particles-canvas"></canvas>
-
-      {/* Grid parallax background */}
-      <div className="parallax-grid"></div>
-
-      {/* Floating tech badges */}
-      <div className="tech-badges">
-        <div className="badge react">React</div>
-        <div className="badge js">JavaScript</div>
-        <div className="badge node">Node.js</div>
-        <div className="badge css">CSS</div>
+    <section className="hero" id="home">
+      {/* Animated Background Elements */}
+      <div className="hero-bg">
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
+        <div className="blob blob-3"></div>
       </div>
 
-      <div className="hero-content">
-        <h1
-          className="hero-title"
-          data-text={`Hello, I'm ${name}`}
-        ></h1>
+      {/* Grid Pattern Overlay */}
+      <div className="grid-pattern"></div>
 
-        <div className="subtitle-container">
-          <p className="hero-subtitle">
-            A passionate <span className="typing-text"></span> from {country}
-          </p>
+      {/* Content */}
+      <div className="hero-content">
+        {/* Badge */}
+        <div className="availability-badge">
+          <span className="pulse-dot">
+            <span className="pulse-ring"></span>
+            <span className="pulse-core"></span>
+          </span>
+          Available for work
         </div>
 
-        <div className="cta-container">
-          <button className="cta-button" onClick={scrollToPortfolio}>
-            <span>See my projects</span>
-            <div className="button-icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M7 17L17 7M17 7H7M17 7V17"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </button>
+        {/* Main Title */}
+        <div className="hero-title-section">
+          <h1 className="hero-title">
+            Hi, I'm <span className="gradient-text">Filip</span>
+          </h1>
 
-          <div className="social-links">
-            <a href="#" className="social-link">
-              <i className="fab fa-github"></i>
-            </a>
-            <a href="#" className="social-link">
-              <i className="fab fa-linkedin"></i>
-            </a>
-            <a href="#" className="social-link">
-              <i className="fab fa-twitter"></i>
-            </a>
+          <div className="typing-container">
+            <p className="hero-subtitle">
+              A passionate{" "}
+              <span className="typing-text">
+                {text}
+                <span className="cursor"></span>
+              </span>
+            </p>
           </div>
         </div>
 
-        <div className="scroll-indicator">
-          <div className="scroll-arrow"></div>
+        {/* Description */}
+        <p className="hero-description">
+          Crafting exceptional digital experiences with modern web technologies.
+          Specialized in building scalable, performant applications.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="hero-buttons">
+          <a
+            href="#about"
+            className="btn btn-primary"
+            onClick={(e) => scrollToSection(e, '#about')}
+          >
+            <span>View My Work</span>
+            <div className="btn-overlay"></div>
+          </a>
+
+          <a
+            href="#contact"
+            className="btn btn-outline"
+            onClick={(e) => scrollToSection(e, '#contact')}
+          >
+            Get In Touch
+          </a>
+        </div>
+
+        {/* Tech Stack Icons */}
+        <div className="tech-stack">
+          <div className="tech-item">
+            <div className="tech-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z" />
+              </svg>
+            </div>
+            <span>React</span>
+          </div>
+          <div className="tech-item">
+            <div className="tech-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24,1.61H14.06L12,5.16,9.94,1.61H0L12,22.39ZM12,14.08,5.16,2.23H9.59L12,6.41l2.41-4.18h4.43Z" />
+              </svg>
+            </div>
+            <span>Vue</span>
+          </div>
+          <div className="tech-item">
+            <div className="tech-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
+              </svg>
+            </div>
+            <span>CSS3</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="scroll-indicator">
+        <div className="scroll-box">
+          <div className="scroll-ball"></div>
         </div>
       </div>
     </section>

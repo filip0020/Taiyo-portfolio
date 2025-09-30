@@ -1,10 +1,8 @@
 .about {
-  padding: 3rem 2rem;
-  max-width: 1000px;
+  padding: 3rem 13rem;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(30px);
   transition: all 0.6s ease-out;
+  background: linear-gradient(269deg, #020617 0%, #0f172a 50%, #020617 100%);
 }
 
 .about.about-visible {
@@ -189,3 +187,46 @@
     justify-content: center;
   }
 }
+
+.fade-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.about-visible .fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger: întârziere progresivă */
+/* .fade-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.fade-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.fade-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.fade-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.fade-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.fade-item:nth-child(6) {
+  transition-delay: 0.6s;
+}
+.fade-item:nth-child(7) {
+  transition-delay: 0.7s;
+}
+.fade-item:nth-child(8) {
+  transition-delay: 0.8s;
+}
+.fade-item:nth-child(9) {
+  transition-delay: 0.9s;
+}
+.fade-item:nth-child(10) {
+  transition-delay: 1s;
+} */

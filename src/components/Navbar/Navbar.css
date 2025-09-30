@@ -35,7 +35,7 @@
   width: 100%;
   z-index: 1000;
   backdrop-filter: blur(10px);
-  background: rgba(1, 10, 18, 0.95);
+  background: linear-gradient(90deg, #04091d 0%, #121b30 50%, #050a1c 100%);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(60, 170, 163, 0.2);
 }
@@ -70,8 +70,6 @@
   background-color: rgba(52, 149, 142, 0.1);
 }
 
-/* burger */
-
 .burger-menu {
   display: none;
 }
@@ -90,21 +88,18 @@
   gap: 20px;
 }
 
-/* ASCUNDE burger menu pe desktop */
 @media (min-width: 769px) {
   .burger-menu {
-    display: none !important;
+    display: none;
   }
 }
 
-/* ASCUNDE meniul normal pe mobile */
 @media (max-width: 768px) {
   .nav-links {
-    display: none !important;
+    display: none;
   }
 
-  /* AFIȘEAZĂ burger menu pe mobile */
   .burger-menu {
-    display: flex !important;
+    display: flex;
   }
 }
