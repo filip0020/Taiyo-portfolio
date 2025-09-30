@@ -11,21 +11,21 @@ function Portfolio({ projects }) {
   return (
     <section id="portfolio" ref={ref} className="portfolio">
       <div className="portfolio-header">
-        <h2 className="portfolio-title">Proiectele Mele</h2>
-        <p className="portfolio-subtitle">De la idei la realitate digitală</p>
+        <h2 className="portfolio-title">My Projects</h2>
+        <p className="portfolio-subtitle">From ideas to digital reality</p>
 
         <div className="portfolio-stats">
           <div className="stat">
             <span className="stat-number">{projects.length}+</span>
-            <span className="stat-label">Proiecte</span>
+            <span className="stat-label">Projects</span>
           </div>
           <div className="stat">
             <span className="stat-number">100%</span>
-            <span className="stat-label">Pasiune</span>
+            <span className="stat-label">Passion</span>
           </div>
           <div className="stat">
             <span className="stat-number">∞</span>
-            <span className="stat-label">Inovație</span>
+            <span className="stat-label">Innovation</span>
           </div>
         </div>
       </div>
@@ -47,12 +47,12 @@ function Portfolio({ projects }) {
       </div>
 
       <div className="portfolio-cta">
-        <p>💡 Ai un proiect interesant? Hai să colaborăm!</p>
+        <p>💡 Do you have an interesting idea? Let’s collaborate and build something great.</p>
         <button
           className="cta-button"
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
         >
-          Contactează-mă
+          Get in Touch
         </button>
       </div>
     </section>

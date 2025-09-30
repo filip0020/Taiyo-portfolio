@@ -1,11 +1,11 @@
-import './Footer.css'
+import './Footer.css';
 
 function Footer() {
   return (
     <footer className="footer">
-      <p>&copy; 2024 Filip. Toate drepturile rezervate.</p>
+      <p>&copy; 2024 copyright. All rights reserved.</p>
     </footer>
-  )
+  );
 }
 
 export default Footer;

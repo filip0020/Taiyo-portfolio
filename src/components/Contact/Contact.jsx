@@ -14,8 +14,8 @@ function Contact() {
       ref={ref}
       className={`contact ${isInView ? 'contact-visible' : ''}`}
     >
-      <h2>Contactează-mă</h2>
-      <p>Ai un proiect interesant? Hai să vorbim!</p>
+      <h2>Get in Touch</h2>
+      <p>Have an exciting project? Let’s connect and make it happen.</p>
       <SocialLinks />
     </section>
   );

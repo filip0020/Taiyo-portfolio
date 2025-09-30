@@ -11,7 +11,7 @@ const About = () => {
 
   return (
     <section id="about" ref={ref} className={`about ${isInView ? 'about-visible' : ''}`}>
-      <h2 className="about-title">Despre mine</h2>
+      <h2 className="about-title">About Me</h2>
       <p className="about-subtitle">Artist • Developer</p>
 
       <div className="about-compact">
@@ -24,14 +24,14 @@ const About = () => {
             <h3>Filip Todorov</h3>
             <p>💻 Frontend Developer • 🎨 Artist</p>
             <div className="bio-stats">
-              <span>2+ ani coding</span>
-              <span>10+ ani desen</span>
-              <span>100% pasiune</span>
+              <span>2+ years coding</span>
+              <span>10+ years drawing</span>
+              <span>100% passion</span>
             </div>
           </div>
         </div>
 
-        {/* Tabs compacte */}
+        {/* Compact Tabs */}
         <div className="compact-tabs">
           {['artist', 'developer', 'goals'].map((tab) => (
             <button
@@ -46,47 +46,47 @@ const About = () => {
           ))}
         </div>
 
-        {/* Conținut dinamic */}
+        {/* Dynamic Content */}
         <div className="compact-content">
           {activeTab === 'artist' && (
             <div className="tab-artist">
-              <h4>Creativitate </h4>
+              <h4>Creativity</h4>
               <ul>
-                <li>🎨 Desenez de peste 10 ani - de la schițe la tablouri</li>
-                <li>🎭 Iubesc să transform emoțiile în artă vizuală</li>
-                <li>🌈 Am ochi pentru detalii și armonie cromatică</li>
+                <li>🎨 Drawing for over 10 years - from sketches to paintings</li>
+                <li>🎭 Love turning emotions into visual art</li>
+                <li>🌈 Strong eye for detail and color harmony</li>
               </ul>
             </div>
           )}
 
           {activeTab === 'developer' && (
             <div className="tab-developer">
-              <h4>De la artă la algoritmi</h4>
+              <h4>From Art to Algorithms</h4>
               <ul>
-                <li>💻 2 ani de frontend development cu React, HTML5, CSS3, JS</li>
-                <li>🎯 Specializat pe interfețe intuitive și frumoase</li>
-                <li>🚀 Autodidact dedicat - învăț zilnic ceva nou</li>
-                <li>❤️ Pasiune pentru cod elegant și funcțional</li>
+                <li>💻 2 years of frontend development with React, HTML5, CSS3, JS</li>
+                <li>🎯 Focused on intuitive and beautiful interfaces</li>
+                <li>🚀 Dedicated self-learner - improving every day</li>
+                <li>❤️ Passion for clean, functional code</li>
               </ul>
             </div>
           )}
 
           {activeTab === 'goals' && (
             <div className="tab-goals">
-              <h4>Viziune și ambiție</h4>
+              <h4>Vision & Ambition</h4>
               <ul>
-                <li>⭐ Devin expert React și JavaScript</li>
-                <li>🌍 Lucrez la proiecte cu impact mare</li>
-                <li>📚 Învăț continuu și împărtășesc cu comunitatea</li>
-                <li>🎨 Unesc arta cu tehnologia în proiecte unice</li>
+                <li>⭐ Becoming an expert in React and JavaScript</li>
+                <li>🌍 Working on high-impact projects</li>
+                <li>📚 Continuously learning and sharing with the community</li>
+                <li>🎨 Blending art and technology in unique projects</li>
               </ul>
             </div>
           )}
         </div>
 
-        {/* Citat inspirational */}
+        {/* Inspirational Quote */}
         <blockquote className="about-quote">
-          "Transform ideile abstracte în realități digitale"
+          "Turning abstract ideas into digital realities"
         </blockquote>
       </div>
     </section>

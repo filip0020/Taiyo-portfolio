@@ -2,25 +2,25 @@ export const personalData = {
   logoName: "Taiyo",
   name: "Filip",
   country: "Moldova",
-  description: "Sunt un developer pasionat de tehnologie și în continuă căutare a noilor provocări. Îmi place să creez interfețe frumoase și funcționale.", // <- Scrie ceva despre tine
+  description: "I am a developer passionate about technology, always seeking new challenges. I enjoy creating beautiful and functional interfaces.",
 };
 
 export const projects = [
   {
     id: 1,
     title: "ArtDen-Media",
-    description: "Site portofolio creat pentru un video-editor",
+    description: "A modern, responsive portfolio site showcasing video editing projects with smooth animations and a clean design.",
     imageUrl: "/ArtDen.png",
     linkLive: "https://artden-media.netlify.app/",
     linkGithub: "https://github.com/filip0020"
   },
   {
     id: 2,
-    title: "Calculator React",
-    description: "Un calculator funcțional construit cu React.",
-    imageUrl: "/9652945.jpg",
-    linkLive: "#",
-    linkGithub: "#"
+    title: "To-do List",
+    description: "A simple yet stylish to-do list app where users can add, complete, and delete tasks, with data saved in localStorage.",
+    imageUrl: "/to-do image.png",
+    linkLive: "https://to-do-list-app-taiyo.netlify.app/",
+    linkGithub: "https://github.com/filip0020/To-do-list"
   }
 ];
 

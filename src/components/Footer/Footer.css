@@ -1,10 +1,136 @@
 .footer {
-  text-align: center;
-  padding: 3rem;
   background-color: var(--color-primary-dark);
+  color: var(--color-text-secondary);
+  padding: 4rem 2rem 2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.footer a {
+  color: var(--color-accent-light-2);
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer a:hover {
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+  color: var(--color-text);
+}
+
+.footer-brand p {
+  margin: 0;
+  font-size: 0.9rem;
   color: var(--color-text-secondary);
 }
 
-.footer p {
-  margin: 0;
+.footer-links h4,
+.footer-contact h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+/* Social links grid */
+.footer-links .social-links-grid {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.footer-links .social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 2px solid var(--color-accent-light-2);
+  transition: all 0.3s ease;
+}
+
+.footer-links .social-card:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light),
+    var(--color-accent-light-2)
+  );
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(60, 170, 163, 0.5);
+}
+
+.footer-links .social-logo {
+  width: 32px;
+  height: 32px;
+  fill: var(--color-text);
+  transition: transform 0.3s, fill 0.3s;
+}
+
+.footer-links .social-card:hover .social-logo {
+  transform: scale(1.2);
+  fill: var(--color-primary-dark);
+}
+
+.footer-links .social-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  color: var(--color-text-secondary);
+}
+
+.footer-card:hover .social-name {
+  color: var(--color-primary-dark);
+}
+
+/* Contact info */
+.footer-contact p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-links .social-links-grid {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-links .social-card {
+    width: 60px;
+    height: 60px;
+  }
+
+  .footer-links .social-logo {
+    width: 24px;
+    height: 24px;
+  }
 }
