@@ -1,167 +1,210 @@
-import { useEffect, useRef } from 'react';
-import './Hero.css';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
+import {
+  FaInstagram,
+  FaTiktok,
+  FaFacebook,
+  FaTelegram,
+  FaPaperPlane,
+  FaUser,
+  FaEnvelope,
+  FaComment,
+} from "react-icons/fa";
+import "./Contact.css";
 
-function Hero({ name, country }) {
-  const heroRef = useRef(null);
-  const canvasRef = useRef(null);
+const Contact = ({ language = "en" }) => {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const scrollToPortfolio = () => {
-    const portfolioSection = document.getElementById('portfolio');
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+  const serviceID = "service_lff04v9";
+  const templateID = "template_fsk6aqo";
+  const publicKey = "QkQQNgNmK3PtmRukN";
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  useEffect(() => {
-    // Animație de scris pentru titlu
-    const titleElement = document.querySelector('.hero-title');
-    const text = `Hello, I'm ${name}`;
-    let index = 0;
-
-    titleElement.innerHTML = '';
-
-    const typeWriter = () => {
-      if (index < text.length) {
-        titleElement.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, 100);
-      }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
     };
 
-    // Întârziere pentru efect dramatic
-    setTimeout(typeWriter, 500);
-
-    // Efect de particule în fundal
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles = [];
-    const particleCount = 50;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-        this.color = `rgba(52, 212, 201, ${Math.random() * 0.5 + 0.2})`;
+    emailjs.send(serviceID, templateID, templateParams, publicKey).then(
+      () => {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setIsSubmitted(false), 3000);
+      },
+      (error) => {
+        console.error("EmailJS error:", error);
+        alert("Something went wrong, try again!");
       }
+    );
+  };
 
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x > canvas.width) this.x = 0;
-        else if (this.x < 0) this.x = canvas.width;
-
-        if (this.y > canvas.height) this.y = 0;
-        else if (this.y < 0) this.y = canvas.height;
-      }
-
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    const createParticles = () => {
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-    };
-
-    const animateParticles = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-      }
-
-      requestAnimationFrame(animateParticles);
-    };
-
-    createParticles();
-    animateParticles();
-
-    // Animație de fade-in pentru conținut
-    const contentElements = document.querySelectorAll('.hero-content > *');
-    contentElements.forEach((el, index) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-
-      setTimeout(() => {
-        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, 1000 + index * 300);
-    });
-
-    // Resize handler pentru canvas
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [name]);
+  const socialPlatforms = [
+    {
+      id: "instagram",
+      name: "Instagram",
+      icon: <FaInstagram />,
+      color: "#E1306C",
+      url: "https://instagram.com/artdenmedia",
+    },
+    {
+      id: "tiktok",
+      name: "TikTok",
+      icon: <FaTiktok />,
+      color: "#000000",
+      url: "https://tiktok.com/@artdenmedia",
+    },
+    {
+      id: "facebook",
+      name: "Facebook",
+      icon: <FaFacebook />,
+      color: "#1877F2",
+      url: "https://facebook.com/artdenmedia",
+    },
+    {
+      id: "telegram",
+      name: "Telegram",
+      icon: <FaTelegram />,
+      color: "#0088CC",
+      url: "https://t.me/artdenmedia",
+    },
+  ];
 
   return (
-    <section id="home" className="hero" ref={heroRef}>
-      <canvas ref={canvasRef} className="particles-canvas"></canvas>
+    <section id="contact" className="contact">
+      <div className="container">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          {language === "ro"
+            ? "Hai să colaborăm la următorul proiect!"
+            : "Let’s collaborate on your next project!"}
+        </motion.h2>
 
-      <div className="hero-content">
-        <h1 className="hero-title"></h1>
+        <motion.p
+          className="contact-subtitle"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          {language === "ro"
+            ? "Contactează-mă pe rețelele sociale sau prin formular:"
+            : "Reach me on social media or via the form below:"}
+        </motion.p>
 
-        <div className="subtitle-container">
-          <p className="hero-subtitle">
-            A passionate <span className="typing-text"></span> from {country}
-          </p>
-        </div>
-
-        <div className="cta-container">
-          <button className="cta-button" onClick={scrollToPortfolio}>
-            <span>See my projects</span>
-            <div className="button-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+        <div className="contact-content">
+          <motion.div
+            className="socials"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="socials-grid">
+              {socialPlatforms.map((p, i) => (
+                <motion.a
+                  key={p.id}
+                  href={p.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-card"
+                  style={{ "--clr": p.color }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <span className="icon">{p.icon}</span>
+                  <span>{p.name}</span>
+                </motion.a>
+              ))}
             </div>
-          </button>
+          </motion.div>
 
-          <div className="social-links">
-            <a href="#" className="social-link">
-              <i className="fab fa-github"></i>
-            </a>
-            <a href="#" className="social-link">
-              <i className="fab fa-linkedin"></i>
-            </a>
-            <a href="#" className="social-link">
-              <i className="fab fa-twitter"></i>
-            </a>
-          </div>
-        </div>
+          <motion.div
+            className="form-container"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <form onSubmit={handleSubmit}>
+              <div className="input-group">
+                <FaUser className="input-icon" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder={language === "ro" ? "Numele tău" : "Your name"}
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
 
-        <div className="scroll-indicator">
-          <div className="scroll-arrow"></div>
+              <div className="input-group">
+                <FaEnvelope className="input-icon" />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder={language === "ro" ? "Email" : "Email"}
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              <div className="input-group textarea">
+                <FaComment className="input-icon" />
+                <textarea
+                  name="message"
+                  placeholder={language === "ro" ? "Mesajul tău" : "Your message"}
+                  rows="5"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                ></textarea>
+              </div>
+
+              <motion.button
+                type="submit"
+                className="submit-btn"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaPaperPlane />{" "}
+                {language === "ro" ? "Trimite mesajul" : "Send message"}
+              </motion.button>
+
+              {isSubmitted && (
+                <motion.div
+                  className="success"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
+                  {language === "ro"
+                    ? "✓ Mesaj trimis cu succes!"
+                    : "✓ Message sent successfully!"}
+                </motion.div>
+              )}
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default Hero;
+export default Contact;

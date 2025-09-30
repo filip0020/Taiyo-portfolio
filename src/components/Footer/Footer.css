@@ -3,6 +3,8 @@
   color: var(--color-text-secondary);
   padding: 4rem 2rem 2rem;
   font-family: "Roboto", sans-serif;
+  justify-content: center;
+  display: flex;
 }
 
 .footer a {

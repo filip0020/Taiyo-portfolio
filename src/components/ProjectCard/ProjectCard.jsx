@@ -26,7 +26,7 @@ function ProjectCard({ title, description, imageUrl, liveUrl, githubUrl, technol
         )}
         <div className="project-overlay">
           <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-            Vezi Live
+            Live
           </a>
           <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="project-link">
             Github Code

@@ -218,13 +218,12 @@
   }
 }
 
-/* Efect de lumină în fundal */
 .hero::before {
   content: "";
   position: absolute;
   top: -50%;
   left: -50%;
-  width: 200%;
+  width: 100%;
   height: 200%;
   background: radial-gradient(
     circle,
@@ -281,5 +280,139 @@
 
   .cta-container {
     gap: 1.5rem;
+  }
+}
+
+/* Grid 3D parallax */
+.parallax-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(800px) rotateX(15deg);
+  pointer-events: none;
+  animation: gridMove 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100px 100px;
+  }
+}
+
+/* Tech badges floating */
+.tech-badges {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 2;
+}
+
+.badge {
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #0c102e;
+  background: var(--color-accent-light-2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  cursor: default;
+}
+
+.badge:hover {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+/* Colors per stack */
+.react {
+  background: #61dafb;
+}
+.js {
+  background: #f7df1e;
+}
+.node {
+  background: #68a063;
+  color: white;
+}
+.css {
+  background: #264de4;
+  color: white;
+}
+
+/* Glitch effect on hero title */
+.hero-title {
+  position: relative;
+  color: var(--color-text);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero-title::before,
+.hero-title::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+
+.hero-title::before {
+  animation: glitchTop 2s infinite linear alternate-reverse;
+  color: #ff3;
+}
+
+.hero-title::after {
+  animation: glitchBottom 2s infinite linear alternate-reverse;
+  color: #f3f;
+}
+
+@keyframes glitchTop {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  20% {
+    clip: rect(10px, 9999px, 40px, 0);
+    transform: translate(-2px, -2px);
+  }
+  40% {
+    clip: rect(85px, 9999px, 140px, 0);
+    transform: translate(2px, 2px);
+  }
+  60%,
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+}
+
+@keyframes glitchBottom {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  20% {
+    clip: rect(55px, 9999px, 100px, 0);
+    transform: translate(2px, 0);
+  }
+  40% {
+    clip: rect(20px, 9999px, 60px, 0);
+    transform: translate(-2px, 0);
+  }
+  60%,
+  100% {
+    clip: rect(0, 9999px, 0, 0);
   }
 }
