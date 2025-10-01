@@ -1,6 +1,3 @@
-/* Hero.css */
-
-/* ========== Base Styles ========== */
 .hero {
   position: relative;
   display: flex;
@@ -11,7 +8,7 @@
   background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #020617 100%);
   color: #fff;
   font-family: "Poppins", sans-serif;
-  padding: 0 1rem;
+  padding: 6rem 1rem;
   text-align: center;
 }
 
