@@ -2,6 +2,7 @@
   padding: 6rem 2rem;
   background: linear-gradient(269deg, #020617 0%, #0f172a 50%, #020617 100%);
   color: white;
+  overflow: hidden;
 }
 
 .contact h2 {
