@@ -21,6 +21,14 @@ export const projects = [
     imageUrl: "/to-do image.png",
     linkLive: "https://to-do-list-app-taiyo.netlify.app/",
     linkGithub: "https://github.com/filip0020/To-do-list"
+  },
+  {
+    id: 3,
+    title: "NutriSnap",
+    description: "Web application that uses image-reading AI to calculate calories and nutrients in a serving of food",
+    imageUrl: "/NutriSnap.png",
+    linkLive: "https://nutri-snap-two.vercel.app/",
+    linkGithub: "https://github.com/filip0020/NutriSnap"
   }
 ];
 
